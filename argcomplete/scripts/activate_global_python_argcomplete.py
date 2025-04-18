@@ -43,7 +43,7 @@ args = None
 def get_local_dir():
     try:
         return subprocess.check_output(["brew", "--prefix"]).decode().strip()
-    except (FileNotFoundError, subprocess.CalledProcessError):
+    except (FileNotFoundError, PermissionError, subprocess.CalledProcessError):
         return "/usr/local"
 
 
